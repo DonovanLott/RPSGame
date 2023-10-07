@@ -1,32 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
+    public Collider2D areaColl;
+    public AIDestinationSetter dest;
+    public EnemyAI enemySpawner;
 
-    private float health;
-
-    void Start()
+    private void Awake()
     {
-        health = 10f;
+        areaColl = GameObject.Find("Bound").GetComponent<BoxCollider2D>();
+        enemySpawner = GameObject.Find("Enemy Spawner").GetComponent<EnemyAI>();
     }
 
-    void Update()
+    private void Start()
     {
-        if(health <= 0)
+        SetDestination();
+    }
+
+    private void SetDestination()
+    {
+        Vector3 Destination()
         {
-            Die();
+            Vector3 randomPos = Random.insideUnitCircle;
+
+            randomPos *= enemySpawner.spawnCircleRadius;
+            randomPos += areaColl.transform.position;
+
+            Debug.Log(randomPos);
+
+            return randomPos;
         }
+
+        Transform childObject = gameObject.transform.GetChild(0);
+
+        childObject.position = Destination();
+
+        dest.target = childObject;
     }
 
-    public void ChangeHealth(float amount)
-    {
-        health = health + amount;
-    }
 
-    void Die()
-    {
-        Destroy(this.gameObject);
-    }
 }

@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
         //damage
         foreach (var enemy in colliderList)
         {
-            enemy.GetComponent<Enemy>().ChangeHealth(-10f);
+            enemy.GetComponent<EnemyHealth>().ChangeHealth(-10f);
         }
 
         Debug.Log("Down");
