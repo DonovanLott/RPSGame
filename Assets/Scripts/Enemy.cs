@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
     public AIDestinationSetter dest;
     public EnemyAI enemySpawner;
 
+    public float minWanderTime, maxWanderTime;
+    public float enemyLifespan;
+
     private void Awake()
     {
         areaColl = GameObject.Find("Bound").GetComponent<BoxCollider2D>();
@@ -17,10 +20,19 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        SetDestination();
+        StartCoroutine(EnemyBehaviour());
     }
 
-    private void SetDestination()
+    IEnumerator EnemyBehaviour()
+    {
+        WanderMode();
+
+        yield return new WaitForSeconds(enemyLifespan);
+
+        ExitMap();
+    }
+
+    private void WanderMode()
     {
         Vector3 Destination()
         {
@@ -29,16 +41,47 @@ public class Enemy : MonoBehaviour
             randomPos *= enemySpawner.spawnCircleRadius;
             randomPos += areaColl.transform.position;
 
-            Debug.Log(randomPos);
+            return randomPos;
+        }
+
+        Transform childObject = gameObject.transform.GetChild(0);
+
+        IEnumerator PeriodicDestinationChange()
+        {
+            while(true)
+            {
+                childObject.position = Destination();
+
+                yield return new WaitForSeconds(Random.Range(minWanderTime, maxWanderTime));
+            }
+        }
+
+        dest.target = childObject;
+
+        StartCoroutine(PeriodicDestinationChange());
+
+    }
+
+    private void ExitMap()
+    {
+        Vector3 FinalDestination()
+        {
+            Vector3 randomPos = Random.insideUnitCircle.normalized * ( .1f * Random.Range(enemySpawner.spawnCircleRadius, 1f));
+
+            randomPos *= enemySpawner.spawnCircleRadius;
+            randomPos += areaColl.transform.position;
 
             return randomPos;
         }
 
         Transform childObject = gameObject.transform.GetChild(0);
 
-        childObject.position = Destination();
+        childObject.position = FinalDestination();
 
         dest.target = childObject;
+
+
+
     }
 
 

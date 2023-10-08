@@ -16,8 +16,6 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject gameArea;
     public GameObject enemy;
-
-    public int enemyLimit;
     public float spawnDelay;
 
     public float spawnCircleRadius = 50f;

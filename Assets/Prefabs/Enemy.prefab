@@ -62,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5236361502905106524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.41801, y: -11.535967, z: 0}
+  m_LocalPosition: {x: 4.564881, y: -32.773617, z: 0}
   m_LocalScale: {x: 0.61, y: 0.61, z: 0.61}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -153,6 +153,9 @@ MonoBehaviour:
   areaColl: {fileID: 0}
   dest: {fileID: 4584317261263156832}
   enemySpawner: {fileID: 0}
+  minWanderTime: 2
+  maxWanderTime: 8
+  enemyLifespan: 15
 --- !u!114 &4584317261263156832
 MonoBehaviour:
   m_ObjectHideFlags: 0
