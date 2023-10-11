@@ -6,6 +6,7 @@ namespace RPSGame
 	/// <summary>
 	/// The movement system for Ron.
 	/// </summary>
+	[RequireComponent(typeof(Transform))]
 	public sealed class RonMovement : MonoBehaviour
 	{
 		[SerializeField]
@@ -37,6 +38,9 @@ namespace RPSGame
 
 		[SerializeField]
 		private GameObject ronShadowSprite;
+
+		[SerializeField]
+		private GameObject ronShockwavePrefab;
 
 		private Vector3 _preJumpPosition = Vector2.zero;
 		private Vector3 _targetPosition = Vector3.zero;
@@ -135,20 +139,22 @@ namespace RPSGame
 			while (currentTime < slamTimeInSeconds)
 			{
 				currentTime += Time.deltaTime;
-				float percentDone = Mathf.Clamp01(currentTime / slamTimeInSeconds);
+				float invPercentDone = 1f - Mathf.Clamp01(currentTime / slamTimeInSeconds);
 
-				_ronSpriteTransform.localPosition = originalSpriteLocalPosition + new Vector3(0f, (1f - percentDone) * jumpHeight, 0f);
-				_ronShadowSpriteTransform.localScale = Vector3.Lerp(originalShadowLocalScale, originalShadowLocalScale * finalShadowScale, (1f - percentDone) * (1f - percentDone));
+				_ronSpriteTransform.localPosition = originalSpriteLocalPosition + new Vector3(0f, invPercentDone * jumpHeight, 0f);
+				_ronShadowSpriteTransform.localScale = Vector3.Lerp(originalShadowLocalScale, originalShadowLocalScale * finalShadowScale, invPercentDone * invPercentDone);
 
 				yield return null;
 			}
 
-			// TODO: Create shockwave
-			// May want to wait until a standard damage system is implemented.
-			// Direct/splash damage, direct/splash radius will be serialized.
 			_ronSpriteTransform.localPosition = originalSpriteLocalPosition;
 			_ronShadowSpriteTransform.localScale = originalShadowLocalScale;
 
+			// Create Shockwave
+			// Do this at shadow position to visually sync better
+			Instantiate(ronShockwavePrefab, _ronShadowSpriteTransform.position, Quaternion.identity);
+
+			// Stun
 			_moving = false;
 			StartCoroutine(StunCoroutine());
 		}
