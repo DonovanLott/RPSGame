@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     public float minWanderTime, maxWanderTime;
     public float enemyLifespan;
+    public string mode;
 
     private void Awake()
     {
@@ -25,10 +26,12 @@ public class Enemy : MonoBehaviour
 
     IEnumerator EnemyBehaviour()
     {
+        mode = "Wander";
         WanderMode();
 
         yield return new WaitForSeconds(enemyLifespan);
 
+        mode = "Exit";
         ExitMap();
     }
 
@@ -48,7 +51,7 @@ public class Enemy : MonoBehaviour
 
         IEnumerator PeriodicDestinationChange()
         {
-            while(true)
+            while(mode == "Wander")
             {
                 childObject.position = Destination();
 

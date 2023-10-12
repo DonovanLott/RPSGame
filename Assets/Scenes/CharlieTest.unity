@@ -782,9 +782,9 @@ MonoBehaviour:
   highestSpeed: 5
   gameArea: {fileID: 1854969641}
   enemy: {fileID: 5236361502905106524, guid: 3af8ab64a76e7694f817fdf877b6a844, type: 3}
-  spawnDelay: 2
+  spawnDelay: 3
   spawnCircleRadius: 33.09
-  limit: 20
+  limit: 50
 --- !u!4 &1662114083
 Transform:
   m_ObjectHideFlags: 0
