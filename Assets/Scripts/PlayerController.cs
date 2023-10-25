@@ -152,6 +152,4 @@ public class PlayerController : MonoBehaviour
     //letting go causes pari to still move but she will deaccelerate
     //clicking and holding somewhere else will cause pari to start accelerating in that direction
 
-    //learn how to do fruit ninja type swiping controls
-    //swiping in a direction will move scotty to that direction
 }
