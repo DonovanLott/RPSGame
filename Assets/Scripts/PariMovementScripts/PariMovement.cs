@@ -259,13 +259,11 @@ public class PariMovement : MonoBehaviour
 
         
 
-        if (isLeft && spinz == true && atWall == false) {
+        if (spinz == true && atWall == false) {
 
             rotz += Time.deltaTime * RotationSpeed;
 
-        } else if (!isLeft && spinz == true && atWall == false) {
-            rotz += -Time.deltaTime * RotationSpeed;
-        } else {
+        }  else {
             rotz = 0;
         }
        
