@@ -14,6 +14,41 @@ public class MenuCanvas : MonoBehaviour
 
     void Start()
     {
-        
+        mainMenuCanvas = GameObject.Find("MainMenuCanvas");
+        mainMenuCanvas.SetActive(true);
+        levelSelectCanvas = GameObject.Find("ModeSelectCanvas");
+        levelSelectCanvas.SetActive(false);
+        settingsCanvas = GameObject.Find("SettingsCanvas");
+        settingsCanvas.SetActive(false);
+        creditsCanvas = GameObject.Find("CreditsCanvas");
+        creditsCanvas.SetActive(false);
+    }
+
+    public void BackToMenu()
+    {
+        currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        currentCanvas.SetActive(false);
+        mainMenuCanvas.SetActive(true);
+    }
+
+    public void LoadLevelSelectCanvas()
+    {
+        currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        currentCanvas.SetActive(false);
+        levelSelectCanvas.SetActive(true);
+    }
+
+    public void LoadSettingsCanvas()
+    {
+        currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        currentCanvas.SetActive(false);
+        settingsCanvas.SetActive(true);
+    }
+
+    public void LoadCreditsCanvas()
+    {
+        currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        currentCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);
     }
 }
