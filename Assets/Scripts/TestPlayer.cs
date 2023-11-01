@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Place this on any gameObject to give it basic 4-directional movement
+ * Made for testing purposes
+ */
 public class TestPlayer : MonoBehaviour
 {
     public float speed;
