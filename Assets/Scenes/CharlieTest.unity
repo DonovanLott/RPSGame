@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 267878974}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -631,6 +631,10 @@ PrefabInstance:
       propertyPath: areaColl
       value: 
       objectReference: {fileID: 339114780}
+    - target: {fileID: 3678196083625614134, guid: 3af8ab64a76e7694f817fdf877b6a844, type: 3}
+      propertyPath: cooldownLength
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5236361502905106524, guid: 3af8ab64a76e7694f817fdf877b6a844, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -645,11 +649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855915777009873344, guid: 3af8ab64a76e7694f817fdf877b6a844, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.65207
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: 5855915777009873344, guid: 3af8ab64a76e7694f817fdf877b6a844, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8481574
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5855915777009873344, guid: 3af8ab64a76e7694f817fdf877b6a844, type: 3}
       propertyPath: m_LocalPosition.z
@@ -778,8 +782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d991b87e4022524fb0b061d00980194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowestSpeed: 2
-  highestSpeed: 5
   gameArea: {fileID: 1854969641}
   enemy: {fileID: 5236361502905106524, guid: 3af8ab64a76e7694f817fdf877b6a844, type: 3}
   spawnDelay: 3
@@ -899,7 +901,7 @@ GameObject:
   - component: {fileID: 1854969642}
   m_Layer: 0
   m_Name: BG
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

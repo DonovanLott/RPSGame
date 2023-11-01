@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/*
+ * Functionally independent of gameObject this is placed on
+ * 
+ * Enemy spawning functionality
+ */
 public class EnemyAI : MonoBehaviour
 {
-
-    /*This script is a ROUGH and basic AI that just spawns enemies randomly outside
-    bounds and has them move in a random direction through the play area
-
-    Made this as a good place to start
-    */
-
-    public float lowestSpeed, highestSpeed;
-
+    //center of enemy spawning
     public GameObject gameArea;
+
+    //enemy prefab that gets instantiated
     public GameObject enemy;
+
+    //amount of time between enemy spawns
     public float spawnDelay;
 
+    //radius of circle enemies spawn along
     public float spawnCircleRadius = 50f;
+
+    //max amount of enemy spawns
     public int limit = 40;
 
     private void Start()
@@ -52,20 +55,11 @@ public class EnemyAI : MonoBehaviour
         {
 
             yield return new WaitForSeconds(spawnDelay);
-            GameObject spawnedGuy = Instantiate(enemy);
+            GameObject spawnedGuy = Instantiate(enemy, gameObject.transform);
             enemy.transform.position = GetRandomPosition();
 
             i++;
         }
     }
-    
-    
 
-    
-
-    
-
-    
-
-    
 }
