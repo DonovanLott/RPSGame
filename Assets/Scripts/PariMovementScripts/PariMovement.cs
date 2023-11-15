@@ -38,10 +38,17 @@ public class PariMovement : MonoBehaviour
     Vector2 movementM = new Vector2(-.25f, 0);
     Vector2 movementM2 = new Vector2(.25f, 0);
     Vector2 movementM3 = new Vector2(0, -.25f);
-    
+
+    private AudioSource audioSource;
+    public AudioClip[] sounds;
+    AudioPlayer audio;
+
     void Start()
     {
         currHealth = health;
+
+        audioSource = GetComponent<AudioSource>();
+        audio = GameObject.Find("AudioManager").GetComponent<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -71,7 +78,7 @@ public class PariMovement : MonoBehaviour
                 
                 
                 move = true;
-           
+                audio.PlayAudio(audioSource, sounds, 0, 12);
 
                 
                 decell = 1;
