@@ -62,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5236361502905106524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.489042, y: -12.889698, z: 0}
+  m_LocalPosition: {x: 6.47456, y: -32.42345, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -148,12 +148,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5236361502905106524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c674ffc31644d24f907211520a44612, type: 3}
+  m_Script: {fileID: 11500000, guid: b4ee2852c52887f4a8abe14530cd8ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWanderTime: 2
-  maxWanderTime: 8
-  enemyLifespan: 15
+  minWanderTime: 0
+  maxWanderTime: 0
+  enemyLifespan: 0
   mode: 
 --- !u!114 &4584317261263156832
 MonoBehaviour:

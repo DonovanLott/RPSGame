@@ -46,17 +46,17 @@ public class Enemy : MonoBehaviour
     IEnumerator EnemyBehaviour()
     {
         //Set to wander if not in a chase
-        if(!aggroScript.chasing)
-        {
-            mode = "Wander";
-            WanderMode();
-        }
+        if (!aggroScript.chasing)
+            {
+                mode = "Wander";
+                WanderMode();
+            }
 
         //Wait for lifespan
         yield return new WaitForSeconds(enemyLifespan);
 
         //If enemy is not currently chasing player, exit behaviour functions as normal.
-        if(!aggroScript.chasing)
+        if (!aggroScript.chasing)
         {
             mode = "Exit";
             ExitMap();
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
 
             StartCoroutine(EnemyBehaviour());
         }
-        
+
     }
 
     public void WanderMode()
@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
 
         IEnumerator PeriodicDestinationChange()
         {
-            while(mode == "Wander")
+            while (mode == "Wander")
             {
                 childObject.position = Destination();
 
@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 FinalDestination()
         {
-            Vector3 randomPos = Random.insideUnitCircle.normalized * ( .1f * Random.Range(enemySpawner.spawnCircleRadius, 1f));
+            Vector3 randomPos = Random.insideUnitCircle.normalized * (.1f * Random.Range(enemySpawner.spawnCircleRadius, 1f));
 
             randomPos *= enemySpawner.spawnCircleRadius;
             randomPos += areaColl.transform.position;
@@ -117,8 +117,6 @@ public class Enemy : MonoBehaviour
         childObject.position = FinalDestination();
 
         dest.target = childObject;
-
-
 
     }
 
