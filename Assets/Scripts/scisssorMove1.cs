@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scisssorMove1 : MonoBehaviour
 {
-    private Vector3 mousePos;
+    public Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
@@ -13,11 +13,19 @@ public class scisssorMove1 : MonoBehaviour
     public bool isMoving = false;
     public float timeBetweenMoving;
 
+    bool isLeft = true;
+
+    public GameObject scottySprite;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
+    //clicking once should move him a distance of 5 units
+    //holding and releasing should allow him to move between 5 and 20 units
+    //freeze characters rotation while he's launching forward.
 
     // Update is called once per frame
     void Update()
@@ -27,18 +35,31 @@ public class scisssorMove1 : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+        transform.up = direction; //scotty looks at cursor
+
+        if (transform.position.x > mousePos.x && !isLeft) //flips sprite when looking in diferent direction
+        {
+            flip();
+        }
+
+        if (transform.position.x < mousePos.x && isLeft)
+        {
+            flip();
+        }
+
+
         if (Input.GetMouseButtonUp(0)) {
            
             canMove = false;
             isMoving = true;
 
-            mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             
-            mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 direction = mousePos - transform.position;
-            rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
-            
+            rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
             
             
         }
@@ -85,5 +106,12 @@ public class scisssorMove1 : MonoBehaviour
         //playerSprite.transform.localPosition = Vector3.MoveTowards(playerSprite.transform.localPosition, myPos, 100f * Time.deltaTime);
 
         
+    }
+
+    void flip()
+    {
+
+        isLeft = !isLeft;
+        scottySprite.transform.localScale = new Vector3(scottySprite.transform.localScale.x,scottySprite.transform.localScale.y * -1,scottySprite.transform.localScale.z); //reverses sprite
     }
 }
