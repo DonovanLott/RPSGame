@@ -25,7 +25,7 @@ public class PariMovement : MonoBehaviour
     public float RotationSpeed;
 
     int way;
-    public int flipz = 0;
+    int flipz = 0;
     bool spinz = false;
 
     public Vector2 minVal, maxVal;
@@ -38,20 +38,16 @@ public class PariMovement : MonoBehaviour
     Vector2 movementM = new Vector2(-.25f, 0);
     Vector2 movementM2 = new Vector2(.25f, 0);
     Vector2 movementM3 = new Vector2(0, -.25f);
-
-
     
     void Start()
     {
         currHealth = health;
-
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+      
 
         if(currHealth <= 0)
         {
