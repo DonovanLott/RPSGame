@@ -13,7 +13,7 @@ public class scisssorMove1 : MonoBehaviour
     public bool isMoving = false;
     public float timeBetweenMoving;
 
-    bool isLeft = true;
+    //bool isLeft = true;
 
     public GameObject scottySprite;
 
@@ -39,17 +39,17 @@ public class scisssorMove1 : MonoBehaviour
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
-        transform.up = direction; //scotty looks at cursor
+        
 
-        if (transform.position.x > mousePos.x && !isLeft) //flips sprite when looking in diferent direction
-        {
-            flip();
-        }
+        //if (transform.position.x > mousePos.x && !isLeft) //flips sprite when looking in diferent direction
+        //{
+        //    flip();
+        //}
 
-        if (transform.position.x < mousePos.x && isLeft)
-        {
-            flip();
-        }
+        //if (transform.position.x < mousePos.x && isLeft)
+        //{
+        //    flip();
+        //}
 
 
         if (Input.GetMouseButtonUp(0)) {
@@ -108,10 +108,10 @@ public class scisssorMove1 : MonoBehaviour
         
     }
 
-    void flip()
-    {
+    //void flip()
+    //{
 
-        isLeft = !isLeft;
-        scottySprite.transform.localScale = new Vector3(scottySprite.transform.localScale.x,scottySprite.transform.localScale.y * -1,scottySprite.transform.localScale.z); //reverses sprite
-    }
+    //    isLeft = !isLeft;
+    //    scottySprite.transform.localScale = new Vector3(scottySprite.transform.localScale.x,scottySprite.transform.localScale.y * -1,scottySprite.transform.localScale.z); //reverses sprite
+    //}
 }

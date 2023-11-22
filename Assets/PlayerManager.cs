@@ -23,12 +23,34 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         if (((Input.GetKeyDown("space")))) {
+            if ((selectedCharacter == 0) ) {
+                if ((pl[selectedCharacter].GetComponent<PariMovement>().speed == 0f)) {
+                    selectedCharacter++;
+                    if (selectedCharacter == pl.Length) {
 
-            selectedCharacter++;
-            if (selectedCharacter == pl.Length) {
+                        selectedCharacter = 0;
 
-                selectedCharacter = 0;
+                    }
+                }
+            } else if ((selectedCharacter == 1) ) {
+                if ((pl[selectedCharacter].GetComponent<RPSGame.RonMovement>()._moving == false)) {
+                    selectedCharacter++;
+                    if (selectedCharacter == pl.Length) {
 
+                        selectedCharacter = 0;
+
+                    }
+                }
+            } else if ((selectedCharacter == 2) ) {
+                if ((pl[selectedCharacter].GetComponent<scisssorMove1>().isMoving == false)) {
+                    selectedCharacter++;
+                    if (selectedCharacter == pl.Length) {
+
+                        selectedCharacter = 0;
+
+                    }
+                }
+                
             }
 
         }
