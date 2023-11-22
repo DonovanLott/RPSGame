@@ -40,9 +40,9 @@ public class PariMovement : MonoBehaviour
     Vector2 movementM3 = new Vector2(0, -.25f);
 
 
-    private AudioSource audioSource;
-    public AudioClip[] sounds;
-    AudioPlayer audio;
+    //private AudioSource audioSource;
+    //public AudioClip[] sounds;
+    //AudioPlayer audio;
 
 
     void Start()
@@ -50,8 +50,8 @@ public class PariMovement : MonoBehaviour
         currHealth = health;
 
 
-        audioSource = GetComponent<AudioSource>();
-        audio = GameObject.Find("AudioManager").GetComponent<AudioPlayer>();
+        //audioSource = GetComponent<AudioSource>();
+        //audio = GameObject.Find("AudioManager").GetComponent<AudioPlayer>();
 
     }
 
@@ -83,7 +83,7 @@ public class PariMovement : MonoBehaviour
                 
                 move = true;
 
-                audio.PlayAudio(audioSource, sounds, 0, 12);
+                //audio.PlayAudio(audioSource, sounds, 0, 12);
 
 
                 
