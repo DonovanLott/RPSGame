@@ -49,6 +49,10 @@ public class PariMovement : MonoBehaviour
     {
         currHealth = health;
 
+        minVal.x = -24;
+        minVal.y = -13;
+        maxVal.x = 24;
+        maxVal.y = 13;
 
         audioSource = GetComponent<AudioSource>();
         audio = GameObject.Find("AudioManager").GetComponent<AudioPlayer>();

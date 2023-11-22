@@ -66,8 +66,11 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlayAudio(AudioSource audioSource, AudioClip[] sounds, int startIndex, int endIndex)
     {
-        int index = Random.Range(startIndex, endIndex);
-        audioSource.clip = sounds[index];
-        audioSource.Play();
+        if (!audioSource.isPlaying)
+        {
+            int index = Random.Range(startIndex, endIndex);
+            audioSource.clip = sounds[index];
+            audioSource.Play();
+        }  
     }
 }
