@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (((Input.GetKeyDown("space")))) {
             if (selectedCharacter == 1) {
-                if ((pl[selectedCharacter].GetComponent<RPSGame.RonMovement>()._moving == false)) {
+                if ((pl[selectedCharacter].GetComponent<RPSGame.RonMovement>()._moving == false) && (pl[selectedCharacter].GetComponent<RPSGame.RonMovement>()._stunned == false)) {
                     selectedCharacter++;
                     if (selectedCharacter == pl.Length) {
 

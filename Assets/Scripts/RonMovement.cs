@@ -47,7 +47,7 @@ namespace RPSGame
 		private bool _targetIsNew = false;
 		public bool _moving = false;
 		private float _jumpDistance = 0f;
-		private bool _stunned = false;
+		public bool _stunned = false;
 
 		private Camera _camera;
 		private Transform _transform;

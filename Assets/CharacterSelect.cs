@@ -35,7 +35,7 @@ public class CharacterSelect : MonoBehaviour
            
             if (selectedCharacter == 1) {
 
-                if ((playerz[selectedCharacter].GetComponent<RPSGame.RonMovement>()._moving == false)) {
+                if ((playerz[selectedCharacter].GetComponent<RPSGame.RonMovement>()._moving == false) && (playerz[selectedCharacter].GetComponent<RPSGame.RonMovement>()._stunned == false)) {
 
                     playerz[selectedCharacter].SetActive(false);
                     
