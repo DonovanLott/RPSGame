@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown("space")) && (pl[selectedCharacter].GetComponent<PariMovement>().speed == 0f)) {
+        if (((Input.GetKeyDown("space")))) {
 
             selectedCharacter++;
             if (selectedCharacter == pl.Length) {

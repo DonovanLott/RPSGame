@@ -10,7 +10,7 @@ public class CharacterSelect : MonoBehaviour
 
     public int fliz = 0;
 
-   
+
 
     private void Awake () {
 
@@ -28,9 +28,9 @@ public class CharacterSelect : MonoBehaviour
     void Update()
     {
         
-        if ((Input.GetKeyDown("space")) && (playerz[selectedCharacter].GetComponent<PariMovement>().speed == 0f))
+        if ((Input.GetKeyDown("space")) )
         {
-            fliz = playerz[selectedCharacter].GetComponent<PariMovement>().flipz;
+            //fliz = playerz[selectedCharacter].GetComponent<PariMovement>().flipz;
             playerz[selectedCharacter].SetActive(false);
             selectedCharacter++;
             if (selectedCharacter == playerz.Length) {
@@ -41,7 +41,7 @@ public class CharacterSelect : MonoBehaviour
 
             
 
-            playerz[selectedCharacter].GetComponent<PariMovement>().flipz = fliz;
+            //playerz[selectedCharacter].GetComponent<PariMovement>().flipz = fliz;
 
             
 

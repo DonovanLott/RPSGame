@@ -45,7 +45,7 @@ namespace RPSGame
 		private Vector3 _preJumpPosition = Vector2.zero;
 		private Vector3 _targetPosition = Vector3.zero;
 		private bool _targetIsNew = false;
-		private bool _moving = false;
+		public bool _moving = false;
 		private float _jumpDistance = 0f;
 		private bool _stunned = false;
 

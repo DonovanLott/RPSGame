@@ -31,7 +31,7 @@ public class scisssorMove1 : MonoBehaviour
     void Update()
     {
         
-        Debug.Log(isMoving);
+        
 
         rb = GetComponent<Rigidbody2D>();
 
