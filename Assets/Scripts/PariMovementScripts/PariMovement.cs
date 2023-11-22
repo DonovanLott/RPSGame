@@ -25,7 +25,7 @@ public class PariMovement : MonoBehaviour
     public float RotationSpeed;
 
     int way;
-    int flipz = 0;
+    public int flipz = 0;
     bool spinz = false;
 
     public Vector2 minVal, maxVal;
@@ -39,22 +39,26 @@ public class PariMovement : MonoBehaviour
     Vector2 movementM2 = new Vector2(.25f, 0);
     Vector2 movementM3 = new Vector2(0, -.25f);
 
+
     private AudioSource audioSource;
     public AudioClip[] sounds;
     AudioPlayer audio;
+
 
     void Start()
     {
         currHealth = health;
 
+
         audioSource = GetComponent<AudioSource>();
         audio = GameObject.Find("AudioManager").GetComponent<AudioPlayer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+
 
         if(currHealth <= 0)
         {
@@ -78,7 +82,9 @@ public class PariMovement : MonoBehaviour
                 
                 
                 move = true;
+
                 audio.PlayAudio(audioSource, sounds, 0, 12);
+
 
                 
                 decell = 1;
