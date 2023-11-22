@@ -28,5 +28,10 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Destroy(this.gameObject);
+		ScoreCounter scoreCounter = FindFirstObjectByType<ScoreCounter>();
+		if (scoreCounter != null)
+        {
+            scoreCounter.CountEnemyKill();
+        }
     }
 }
