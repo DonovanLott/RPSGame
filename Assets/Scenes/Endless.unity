@@ -2605,7 +2605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1394168908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,6 +3707,7 @@ MonoBehaviour:
   ronShadowSprite: {fileID: 2131660905892531152}
   ronShockwavePrefab: {fileID: 4494832441967185948, guid: ffac3bf801b9c0143bb0da72168bf8b3, type: 3}
   _moving: 0
+  _stunned: 0
 --- !u!4 &2131660905983471747
 Transform:
   m_ObjectHideFlags: 0
