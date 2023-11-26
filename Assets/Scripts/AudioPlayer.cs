@@ -13,28 +13,28 @@ public class AudioPlayer : MonoBehaviour
     AudioMixer mixer;
 
     [SerializeField]
-    public Slider slider;
+    public Slider SFXslider;
 
     [SerializeField]
-    public GameObject sliderText;
+    public GameObject SFXsliderText;
 
     const string MIXER_SFX = "sfxVolume";
 
-    float prevVolume;
+    float prevSFXVolume;
 
-    /*void Awake()
+    void Awake()
     {
-        slider = GameObject.Find("VolumeSlider").GetComponent<Slider>();
-        slider.onValueChanged.AddListener(SetSFXVolume);
-        sliderText = GameObject.Find("VolumeSliderText");
+        SFXslider = GameObject.Find("SFXVolumeSlider").GetComponent<Slider>();
+        SFXslider.onValueChanged.AddListener(SetSFXVolume);
+        SFXsliderText = GameObject.Find("SFXVolumeSliderText");
 
-        if (PlayerPrefs.GetFloat("SliderVolumeLevel", slider.value) == 0)
+        if (PlayerPrefs.GetFloat("SfxSliderVolumeLevel", SFXslider.value) == 0)
         {
-            slider.value = 1;
+            SFXslider.value = 1;
         }
         else
         {
-            slider.value = PlayerPrefs.GetFloat("SliderVolumeLevel", slider.value);
+            SFXslider.value = PlayerPrefs.GetFloat("SfxSliderVolumeLevel", SFXslider.value);
         }
 
 
@@ -42,7 +42,7 @@ public class AudioPlayer : MonoBehaviour
 
     void Update()
     {
-        sliderText.GetComponent<TMPro.TextMeshProUGUI>().text = "Volume: " + Math.Round((slider.value * 100), 0) + "%";
+        SFXsliderText.GetComponent<TMPro.TextMeshProUGUI>().text = "Game Volume: " + Math.Round((SFXslider.value * 100), 0) + "%";
     }
 
     public void SetSFXVolume(float value)
@@ -52,17 +52,17 @@ public class AudioPlayer : MonoBehaviour
 
     public void BackVolume()
     {
-        slider.value = prevVolume;
+        SFXslider.value = prevSFXVolume;
     }
 
     public void SaveVolume()
     {
-        if (prevVolume != slider.value)
+        if (prevSFXVolume != SFXslider.value)
         {
-            prevVolume = slider.value;
-            PlayerPrefs.SetFloat("SliderVolumeLevel", slider.value);
+            prevSFXVolume = SFXslider.value;
+            PlayerPrefs.SetFloat("SfxSliderVolumeLevel", SFXslider.value);
         }
-    }*/
+    }
 
     public void PlayAudio(AudioSource audioSource, AudioClip[] sounds, int startIndex, int endIndex)
     {

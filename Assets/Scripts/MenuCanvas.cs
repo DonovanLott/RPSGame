@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MenuCanvas : MonoBehaviour
 {
-    GameObject currentCanvas;
+    public GameObject currentCanvas;
 
     GameObject mainMenuCanvas;
     GameObject levelSelectCanvas;
@@ -26,13 +26,14 @@ public class MenuCanvas : MonoBehaviour
 
     public void BackToMenu()
     {
-        currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        currentCanvas = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
         currentCanvas.SetActive(false);
         mainMenuCanvas.SetActive(true);
     }
 
     public void LoadLevelSelectCanvas()
     {
+        Debug.Log(EventSystem.current.currentSelectedGameObject);
         currentCanvas = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
         currentCanvas.SetActive(false);
         levelSelectCanvas.SetActive(true);
@@ -51,4 +52,5 @@ public class MenuCanvas : MonoBehaviour
         currentCanvas.SetActive(false);
         creditsCanvas.SetActive(true);
     }
+
 }
