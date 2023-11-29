@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace RPSGame
 {
-	[RequireComponent(typeof(Collider2D))]
 	public sealed class Health : MonoBehaviour
 	{
 		private int _currentHealth;
@@ -20,6 +19,9 @@ namespace RPSGame
 
 		[SerializeField]
 		private int immuneFramesOnHit;
+
+		[SerializeField]
+		private Collider2D hurtCollider;
 
 		public bool CurrentlyImmune => _immuneFrames > 0;
 
@@ -55,14 +57,12 @@ namespace RPSGame
 			return true;
 		}
 
-		private void OnCollisionStay2D(Collision2D collision)
-		{
-			CollideWith(collision.gameObject);
-		}
-
 		private void OnTriggerStay2D(Collider2D collision)
 		{
-			CollideWith(collision.gameObject);
+			if (hurtCollider.IsTouching(collision))
+			{
+				CollideWith(collision.gameObject);
+			}
 		}
 
 		private void CollideWith(GameObject collisionObject)
