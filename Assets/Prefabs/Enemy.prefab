@@ -300,6 +300,7 @@ MonoBehaviour:
   hostile: 1
   maxHealth: 5
   immuneFramesOnHit: 0
+  hurtCollider: {fileID: 5759778222549530393}
 --- !u!114 &159339255502607454
 MonoBehaviour:
   m_ObjectHideFlags: 0
