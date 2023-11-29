@@ -65,10 +65,10 @@ public class scisssorMove1 : MonoBehaviour
 
 
 
-            if (force <= 15f) {
-                force = force + .05f; 
-            } else if (force >= 15f) {
-                force = 15f;
+            if (force <= 25f) {
+                force = force + .15f; 
+            } else if (force >= 25f) {
+                force = 25f;
             }
 
 
