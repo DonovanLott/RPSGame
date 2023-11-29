@@ -45,10 +45,10 @@ public class scisssorMove1 : MonoBehaviour
 
         if(isMoving) {
             StartCoroutine(Wait());
-            if (force > 3f) {
+            if (force > 5.0f) {
                 force = force - .025f; 
-            } else if (force <= 3f) {
-                force = 3.0f;
+            } else if (force <= 5f) {
+                force = 5.0f;
                 rb.velocity = new Vector2(0, 0);
                 isMoving = false;
                 canMove = true;
@@ -65,10 +65,10 @@ public class scisssorMove1 : MonoBehaviour
 
 
 
-            if (force <= 30f) {
-                force = force + .25f; 
-            } else if (force >= 25f) {
-                force = 25f;
+            if (force <= 35f) {
+                force = force + 5.0f; 
+            } else if (force >= 35f) {
+                force = 35f;
             }
 
 
