@@ -8,25 +8,16 @@ namespace RPSGame.Utilities
 	[RequireComponent(typeof(Collider2D))]
 	public sealed class DamageData : MonoBehaviour
 	{
-		public enum DamageType
-		{
-			Rock,
-			Paper,
-			Scissors
-			// TODO: Universal?
-		}
+		[SerializeField]
+		public int amount;
 
 		[SerializeField]
-		private int amount;
-
-		[SerializeField]
-		private DamageType type;
+		public DamageType type;
 
 		/// <summary>
 		/// If <see langword="true"/>, this damage harms the player. If <see langword="false"/>, this damage harms enemies.
 		/// </summary>
-		// TODO: Harm both?
 		[SerializeField]
-		private bool hostile;
+		public bool hostile;
 	}
 }
