@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: 1822509132}
   - component: {fileID: 8021872932530378124}
   - component: {fileID: 787040596}
+  - component: {fileID: 5484060228200065259}
+  - component: {fileID: 159339255502607454}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -63,7 +65,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5236361502905106524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.714386, y: -27.900087, z: 0}
+  m_LocalPosition: {x: 24.212261, y: 22.615208, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -282,6 +284,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5484060228200065259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236361502905106524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8162adeb170a54d884733eb1333653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  hostile: 1
+  maxHealth: 5
+  immuneFramesOnHit: 0
+--- !u!114 &159339255502607454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236361502905106524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9a9beb77fa6cb4b8a361f172a7d985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 2
+  type: 1
+  hostile: 1
 --- !u!1 &8568259846065929288
 GameObject:
   m_ObjectHideFlags: 0
